@@ -97,41 +97,13 @@
             margin: 24px 0 16px;
             overflow: hidden;
             border-radius: var(--br-medium);
-        }
-        .about__grade-a {
-            border: 1px solid var(--green);
-        }
-        .about__grade-b {
-            border: 1px solid var(--yellow);
-        }
-        .about__grade-c {
-            border: 1px solid var(--orange);
-        }
-        .about__grade-d {
-            border: 1px solid var(--orange-red);
-        }
-        .about__grade-f {
-            border: 1px solid var(--red);
+            border: 1px solid var(--black);
         }
         .grade {
             flex: 0 0 160px;
             min-height: 100%;
             padding: 12px 16px;
-        }
-        .about__grade-a .grade {
-            background: var(--green);
-        }
-        .about__grade-b .grade {
-            background: var(--yellow);
-        }
-        .about__grade-c .grade {
-            background: var(--orange);
-        }
-        .about__grade-d .grade {
-            background: var(--orange-red);
-        }
-        .about__grade-f .grade {
-            background: var(--red);
+            background: var(--dark-grey)
         }
         .grade__title {
             font-weight: 700;
@@ -144,6 +116,7 @@
             font-weight: 900;
             font-size: 80px;
             line-height: 100%;
+            display: none;
         }
         .grade__info-pont {
             position: absolute;
@@ -153,10 +126,7 @@
             line-height: 100%;
         }
         .grade__info-ratio {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            font-size: 12px;
+            font-size: 24px;
         }
         .desc {
             flex: 1;
@@ -197,24 +167,6 @@
             padding: 8px;
             background: var(--grey);
         }
-        .row__item--na {
-            background: var(--dark-grey);
-        }
-        .row__item--a {
-            background: var(--light-green);
-        }
-        .row__item--b {
-            background: var(--light-yellow);
-        }
-        .row__item--c {
-            background: var(--light-orange);
-        }
-        .row__item--d {
-            background: var(--light-orange-red);
-        }
-        .row__item--f {
-            background: var(--light-red);
-        }
         .row__item-grade {
             width: 30px;
             height: 30px;
@@ -222,30 +174,8 @@
             justify-content: center;
             align-items: center;
             border-radius: var(--br-small);
-        }
-        .row__item-grade--na {
-            color: var(--black);
             background: var(--grey);
-        }
-        .row__item-grade--a {
-            color: var(--white);
-            background: var(--green);
-        }
-        .row__item-grade--b {
-            color: var(--black);
-            background: var(--yellow);
-        }
-        .row__item-grade--c {
-            color: var(--white);
-            background: var(--orange);
-        }
-        .row__item-grade--d {
-            color: var(--white);
-            background: var(--orange-red);
-        }
-        .row__item-grade--f {
-            color: var(--white);
-            background: var(--red);
+            display: none;
         }
         .row__item-value  {
             font-size: 12px;
@@ -268,6 +198,7 @@
             margin: 24px 0;
         }
         .benchmark {
+            display: none;
             page-break-after: always;
         }
         .benchmark__text {
@@ -359,7 +290,7 @@
         </div>
         <div class="about about__grade-{{.Overall.CSSClassSuffix}}">
             <div class="grade">
-                <h4 class="grade__title">Overall grade:</h4>
+                <h4 class="grade__title">Overall score:</h4>
                 <div class="grade__info">
                     {{$length := len .Overall.Mark}} {{if eq $length 2}}
                     <span class="grade__info-grade">{{printf "%c" (index .Overall.Mark 0)}}</span>
@@ -415,7 +346,7 @@
                 <div class="head__item">Type</div>
                 <div class="head__item">True-positive tests blocked</div>
                 <div class="head__item">True-negative tests passed</div>
-                <div class="head__item">Grade</div>
+                <div class="head__item">Overall Score</div>
             </div>
             <div class="grid__row">
                 <div class="row__item">API Security</div>
